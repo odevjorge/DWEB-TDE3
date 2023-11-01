@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+	WEB - Login
+{% endblock %}
+
+{% block container %}
+    <form action="." method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+        <a href="{% url 'user-create' %}">Criar Usuario</a>
+    <button type="submit">Enviar</button>
+    </form>
+{% endblock %}

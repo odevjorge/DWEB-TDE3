@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+	WEB - Criar Usuario
+{% endblock %}
+
+{% block container %}
+    <h2>Excluir Usuário</h2>
+    <p>Tem certeza de que deseja excluir o usuário "{{ user.username }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Confirmar Exclusão</button>
+        <a href="{% url 'user-list' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+	WEB - Usuarious
+{% endblock %}
+
+{% block container %}
+    <form action="." method="post">
+        {% csrf_token %}
+        {% for user in users %}
+            <a href="{% url 'user-update' user.id %}">{{ user.username }}</a> | <a href="{% url 'user-delete' user.id %}">Apagar</a><br>
+        {% endfor %}
+        <br><a href="{% url 'user-create' %}">Criar Usuário</a> &bull; {% if user.is_authenticated %}<a href="{% url 'logout' %}">Deslogar</a>{% endif %}<br>
+    <button type="submit">Enviar</button>
+    </form>
+{% endblock %}
